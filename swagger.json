@@ -5,7 +5,7 @@
     "description": "Contacts API",
     "version": "1.0.0"
   },
-  "host": "https://vance-cse-341-personal-project.onrender.com",
+  "host": "vance-cse-341-personal-project.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
