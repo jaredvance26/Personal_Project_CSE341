@@ -1,0 +1,79 @@
+[
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e6d"
+    },
+    "movie_director": "James Cameron",
+    "movie_summary": "On the lush alien world of Pandora live the Na'vi, beings who appear primitive but are highly evolved. Because the planet's environment is poisonous, human/Na'vi hybrids, called Avatars, must link to human minds to allow for free movement on Pandora. Jake Sully (Sam Worthington), a paralyzed former Marine, becomes mobile again through one such Avatar and falls in love with a Na'vi woman (Zoe Saldana). As a bond with her grows, he is drawn into a battle for the survival of her world.",
+    "movie_title": "Avatar",
+    "genre": "Action, Fantasy",
+    "release_year": "2009",
+    "box_office": "$2,923,706,026"
+  },
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e6e"
+    },
+    "movie_director": "Joe and Anthony Russo",
+    "movie_summary": "Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.",
+    "movie_title": "Avengers Endgame",
+    "genre": "Action, Superhero",
+    "release_year": "2019",
+    "box_office": "$2,799,439,100"
+  },
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e6f"
+    },
+    "movie_director": "James Cameron",
+    "movie_summary": "James Cameron's 'Titanic' is an epic, action-packed romance set against the ill-fated maiden voyage of the R.M.S. Titanic; the pride and joy of the White Star Line and, at the time, the largest moving object ever built. She was the most luxurious liner of her era -- the 'ship of dreams' -- which ultimately carried over 1,500 people to their death in the ice cold waters of the North Atlantic in the early hours of April 15, 1912.",
+    "movie_title": "Titanic",
+    "genre": "Drama, Romance",
+    "release_year": "1997",
+    "box_office": "$2,194,690,964"
+  },
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e70"
+    },
+    "movie_director": "James Cameron",
+    "movie_summary": "Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.",
+    "movie_title": "Avatar: The Way of Water",
+    "genre": "Action, Fantasy",
+    "release_year": "2022",
+    "box_office": "$2,133,070,442"
+  },
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e71"
+    },
+    "movie_director": "J.J Abrams",
+    "movie_summary": "Thirty years after the defeat of the Galactic Empire, Han Solo (Harrison Ford) and his young allies face a new threat from the evil Kylo Ren (Adam Driver) and the First Order.",
+    "movie_title": "Star Wars: Episode VII - The Force Awakens",
+    "genre": "Action, Science fiction",
+    "release_year": "2015",
+    "box_office": "$2,923,706,026"
+  },
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e72"
+    },
+    "movie_director": "Joe and Anthony Russo",
+    "movie_summary": "Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality. The fate of the planet and existence itself has never been more uncertain as everything the Avengers have fought for has led up to this moment.",
+    "movie_title": "Avengers: Infinity War",
+    "genre": "Action, Superhero",
+    "release_year": "2018",
+    "box_office": "$2,052,415,039"
+  },
+  {
+    "_id": {
+      "$oid": "61a921f6028954d4f0319e73"
+    },
+    "movie_director": "Jon Watts",
+    "movie_summary": "With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+    "movie_title": "Spider-Man: No Way Home",
+    "genre": "Action, Superhero",
+    "release_year": "2021",
+    "box_office": "$2,923,706,026"
+  }
+]

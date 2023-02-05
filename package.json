@@ -1,0 +1,27 @@
+{
+  "name": "personal_project_cse341",
+  "version": "1.0.0",
+  "description": "personal project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredvance26/Personal_Project_CSE341.git"
+  },
+  "author": "Jared Vance",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaredvance26/Personal_Project_CSE341/issues"
+  },
+  "homepage": "https://github.com/jaredvance26/Personal_Project_CSE341#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.0.0",
+    "swagger-autogen": "^2.23.0",
+    "swagger-ui-express": "^4.6.0"
+  }
+}
