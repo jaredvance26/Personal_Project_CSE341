@@ -8,7 +8,7 @@
   "host": "vance-cse-341-personal-project.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/movies/": {
