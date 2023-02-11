@@ -67,6 +67,10 @@ const addMovie = async (req, res) => {
 };
 
 const updateMovie = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Movie not found in database");
+  }
+
   const movieId = new ObjectId(req.params.id);
   const movie = {
     movie_director: req.body.movie_director,
@@ -95,15 +99,11 @@ const updateMovie = async (req, res) => {
     if (response.modifiedCount > 0) {
       res.status(204).send();
     } else {
-      if (!response.length) {
-        res.status(404).json(response.error || "Movie not found in database");
-      } else {
-        res
-          .status(500)
-          .json(
-            response.error || "Oops, something went wrong updating the movie"
-          );
-      }
+      res
+        .status(500)
+        .json(
+          response.error || "Oops, something went wrong updating the movie"
+        );
     }
   } else {
     res
