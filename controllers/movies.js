@@ -113,6 +113,10 @@ const updateMovie = async (req, res) => {
 };
 
 const deleteMovie = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Movie not found in database");
+  }
+
   const movieId = new ObjectId(req.params.id);
   const response = await mongodb
     .getDb()
@@ -123,9 +127,6 @@ const deleteMovie = async (req, res) => {
   if (response.deletedCount > 0) {
     res.status(204).send();
   } else {
-    if (!response.length) {
-      res.status(404).json(response.error || "Movie not found in database");
-    }
     res
       .status(500)
       .json(
