@@ -18,9 +18,19 @@
   },
   "homepage": "https://github.com/jaredvance26/Personal_Project_CSE341#readme",
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "express-openid-connect": "^2.12.0",
+    "express-session": "^1.17.3",
+    "googleapis": "^105.0.0",
+    "method-override": "^3.0.0",
     "mongodb": "^4.13.0",
+    "mongoose": "^6.9.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
     "swagger-autogen": "^2.23.0",
     "swagger-ui-express": "^4.6.0"
   }
