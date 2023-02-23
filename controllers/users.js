@@ -1,13 +1,82 @@
 const e = require("express");
 const mongodb = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
+const { authenticate } = require("@google-cloud/local-auth");
+
+const fs = require("fs").promises;
+const path = require("path");
+const process = require("process");
+const { google } = require("googleapis");
+
+// If modifying these scopes, delete token.json.
+const SCOPES = ["https://www.googleapis.com/auth/contacts.readonly"];
+// The file token.json stores the user's access and refresh tokens, and is
+// created automatically when the authorization flow completes for the first
+// time.
+const TOKEN_PATH = path.join(process.cwd(), "token.json");
+const CREDENTIALS_PATH = path.join(process.cwd(), "credentials.json");
+
+/**
+ * Reads previously authorized credentials from the save file.
+ *
+ * @return {Promise<OAuth2Client|null>}
+ */
+async function loadSavedCredentialsIfExist() {
+  try {
+    const content = await fs.readFile(TOKEN_PATH);
+    const credentials = JSON.parse(content);
+    return google.auth.fromJSON(credentials);
+  } catch (err) {
+    return null;
+  }
+}
+
+/**
+ * Serializes credentials to a file comptible with GoogleAUth.fromJSON.
+ *
+ * @param {OAuth2Client} client
+ * @return {Promise<void>}
+ */
+async function saveCredentials(client) {
+  const content = await fs.readFile(CREDENTIALS_PATH);
+  const keys = JSON.parse(content);
+  const key = keys.installed || keys.web;
+  const payload = JSON.stringify({
+    type: "authorized_user",
+    client_id: key.client_id,
+    client_secret: key.client_secret,
+    refresh_token: client.credentials.refresh_token,
+  });
+  await fs.writeFile(TOKEN_PATH, payload);
+}
+
+async function authorize() {
+  //   let client = await loadSavedCredentialsIfExist();
+  //   if (client) {
+  //     console.log(client);
+  //     return client;
+  //   }
+  let client = await authenticate({
+    scopes: SCOPES,
+    keyfilePath: CREDENTIALS_PATH,
+  });
+  if (client.credentials) {
+    await saveCredentials(client);
+  }
+
+  return client;
+}
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db("movies").collection("users").find();
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists);
-  });
+
+  const getResult = () => {
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists);
+    });
+  };
+  authorize().then(getResult).catch(console.error);
 };
 
 const getSingle = async (req, res) => {
@@ -21,10 +90,13 @@ const getSingle = async (req, res) => {
     .db("movies")
     .collection("users")
     .find({ _id: userId });
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists[0]);
-  });
+  const getResult = () => {
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists[0]);
+    });
+  };
+  authorize().then(getResult).catch(console.error);
 };
 
 const addUser = async (req, res) => {
@@ -35,11 +107,12 @@ const addUser = async (req, res) => {
   };
 
   if (user.first_name && user.last_name && user.dob) {
-    const response = await mongodb
+    const response = mongodb
       .getDb()
       .db("movies")
       .collection("users")
       .insertOne(user);
+
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
